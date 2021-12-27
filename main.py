@@ -26,6 +26,15 @@ def divisao_dois_numeros(num1,num2):
 def elevar_um_numero_pelo_outro(num1, num2):
     return num1 ** num2
 
+def area_do_quadrado(lado):
+    return  lado * lado
+
+def area_do_triangulo(base, altura):
+    return  (base * altura) / 2
+
+
+def area_do_retangulo(base, altura):
+    return  base* altura
 
 
 def raiz_quadrada(num1):
@@ -33,7 +42,7 @@ def raiz_quadrada(num1):
 
 if __name__ == '__main__':
 
-    soma = somar_dois_numeros(8,2)
+    soma = somar_dois_numeros(10,3)
     print(f'A Soma é {soma}')
 
     subtracao = subtrair_dois_numeros(5,7)
@@ -49,8 +58,14 @@ if __name__ == '__main__':
     potencia = elevar_um_numero_pelo_outro(2, 3)
     print(f'A exponeciacão é: {potencia}')
 
+    quadrado = area_do_quadrado(10)
+    print(f'A área do quadrado é: {quadrado}')
 
+    triangulo = area_do_triangulo(2, 3)
+    print(f'A área do triangulo é: {triangulo}')
 
+    retangulo = area_do_retangulo(2, 3)
+    print(f'A área do retangulo é: {retangulo}')
 
     raiz = raiz_quadrada(10)
     print(f'A raiz do é: {raiz}')
