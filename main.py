@@ -42,7 +42,8 @@ def area_do_circulo(raio):
 
         return 'Falha no calculo - Raio não e um número'
 
-
+def volume_do_paralelograma(largura, comprimento, altura):
+    return largura * comprimento * altura
 
 def raiz_quadrada(num1):
     return math.sqrt(num1)
