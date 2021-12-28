@@ -1,3 +1,5 @@
+import csv
+
 import pytest
 
 from main import somar_dois_numeros, subtrair_dois_numeros, multiplicacao_dois_numeros, divisao_dois_numeros, \
@@ -96,12 +98,32 @@ def testar_area_do_circulo(raio, resultado_esperado):
     resultado_atual = area_do_circulo(raio)
     assert resultado_atual == resultado_esperado
 
-def testar_volume_do_paralelograma():
+#ler dados de csv para usar no tete seguinte
+def ler_dados_csv():
+    dados_csv = [] #criação de uma lista vazia
+    nome_arquivo = 'C:/Users/SAFIRA/PycharmProjects/fts132_inicial/test/db/massa_caixa.csv' #local e nome onde está o arquivo de massa
+    try:
+        with open(nome_arquivo, newline='') as csvfile: # repetir a leitura até o fim do arquivo
+            campos = csv.reader(csvfile,delimiter=',')
+            next(campos)
+            for linha in campos:
+                dados_csv.append(linha)
+        return dados_csv
+    except FileExistsError:
+        print(f'Arquivo não encontrado:{nome_arquivo}')
+    except Exception as fail:
+        print(f'Falha imprevista:{fail}')
+
+@pytest.mark.parametrize('id,largura,comprimento,altura,restultado_esperado',ler_dados_csv())
+
+def volume_do_paralelograma(id,largura,comprimento,altura,resultado_esperado):
+    '''
     largura = 5
     comprimento = 10
     altura = 2
     resultado_esperado = 100
+    '''
 
-    resultado_atual = volume_do_paralelograma(largura, comprimento, altura)
-    assert resultado_atual == resultado_esperado
+    resultado_atual = volume_do_paralelograma(int(largura), int(comprimento), int(altura))
+    assert resultado_atual == int(resultado_esperado)
 
