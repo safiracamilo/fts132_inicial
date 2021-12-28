@@ -1,7 +1,7 @@
 import pytest
 
 from main import somar_dois_numeros, subtrair_dois_numeros, multiplicacao_dois_numeros, divisao_dois_numeros, \
-    elevar_um_numero_pelo_outro, area_do_quadrado, area_do_triangulo, area_do_retangulo
+    elevar_um_numero_pelo_outro, area_do_quadrado, area_do_triangulo, area_do_retangulo, area_do_circulo
 
 
 
@@ -76,4 +76,22 @@ def testar_area_do_retangulo():
     resultado_esperado = 6
 
     resultado_atual = area_do_retangulo(base, altura)
+    assert resultado_atual == resultado_esperado
+
+#anotação para utilizar como massa de teste
+@pytest.mark.parametrize('raio,resultado_esperado',[
+    #valores
+                             (1,3.14), #teste n.1
+                             (2,12.56), #teste n.2
+                             (3,28.26), #teste n.3
+                             (4,50.24), #teste n.4
+                             ('a', 'Falha no calculo - Raio não e um número'), #teste n.5
+
+
+                         ])
+def testar_area_do_circulo(raio, resultado_esperado):
+    #raio = 1 (Comentei para que os parametros seja lidos
+    #resultado_esperado = 3.14
+
+    resultado_atual = area_do_circulo(raio)
     assert resultado_atual == resultado_esperado

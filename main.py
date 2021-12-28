@@ -22,7 +22,6 @@ def divisao_dois_numeros(num1,num2):
     except:
         return 'não é possível dividir por zero'
 
-
 def elevar_um_numero_pelo_outro(num1, num2):
     return num1 ** num2
 
@@ -35,6 +34,14 @@ def area_do_triangulo(base, altura):
 
 def area_do_retangulo(base, altura):
     return  base* altura
+
+def area_do_circulo(raio):
+    try:
+        return 3.14 * raio ** 2
+    except TypeError:
+
+        return 'Falha no calculo - Raio não e um número'
+
 
 
 def raiz_quadrada(num1):
@@ -66,6 +73,9 @@ if __name__ == '__main__':
 
     retangulo = area_do_retangulo(2, 3)
     print(f'A área do retangulo é: {retangulo}')
+
+    circulo = area_do_circulo(1)
+    print(f'A área do circulo é: {circulo}')
 
     raiz = raiz_quadrada(10)
     print(f'A raiz do é: {raiz}')
