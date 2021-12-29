@@ -6,12 +6,6 @@ import requests  # Framework de Teste API - Requests / Responses
 base_url = 'https://petstore.swagger.io/v2/user'
 headers = {'Content-Type': 'application/json'}  # Nos .asmx seria 'text/xml'
 
-
-<<<<<<< HEAD
-# 0s  testes
-=======
-# 0s testes
->>>>>>> origin/master
 def testar_criar_usuario():
     # Configura
     status_code_esperado = 200
