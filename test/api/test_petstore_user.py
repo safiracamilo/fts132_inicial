@@ -7,7 +7,7 @@ base_url = 'https://petstore.swagger.io/v2/user'
 headers = {'Content-Type': 'application/json'}  # Nos .asmx seria 'text/xml'
 
 
-# 0s testes
+# 0s  testes
 def testar_criar_usuario():
     # Configura
     status_code_esperado = 200
