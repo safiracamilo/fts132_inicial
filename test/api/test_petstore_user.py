@@ -26,7 +26,7 @@ def testar_criar_usuario():
     print(resposta.status_code)  # Status Code
     print(corpo_da_resposta)  # Resposta Formatada
 
-    # Valida
+    # Valida.
     assert resposta.status_code == status_code_esperado
     assert corpo_da_resposta['code'] == codigo_esperado
     assert corpo_da_resposta['type'] == tipo_esperado
