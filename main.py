@@ -45,6 +45,10 @@ def area_do_circulo(raio):
 def volume_do_paralelograma(largura, comprimento, altura):
     return largura * comprimento * altura
 
+
+def volume_do_cilindro(raio,altura):
+    return  3.1 * raio ** 2 * altura
+
 def raiz_quadrada(num1):
     return math.sqrt(num1)
 
@@ -80,6 +84,10 @@ if __name__ == '__main__':
 
     raiz = raiz_quadrada(10)
     print(f'A raiz do é: {raiz}')
+
+    volume =  volume_do_cilindro(4, 5)
+    print(f'O volume do cilindro do é: {volume}')
+
 
 '''
 import pytest

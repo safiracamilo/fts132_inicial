@@ -3,7 +3,8 @@ import csv
 import pytest
 
 from main import somar_dois_numeros, subtrair_dois_numeros, multiplicacao_dois_numeros, divisao_dois_numeros, \
-    elevar_um_numero_pelo_outro, area_do_quadrado, area_do_triangulo, area_do_retangulo, area_do_circulo, volume_do_paralelograma
+    elevar_um_numero_pelo_outro, area_do_quadrado, area_do_triangulo, area_do_retangulo, area_do_circulo, \
+    volume_do_paralelograma, volume_do_cilindro
 
 
 
@@ -78,6 +79,14 @@ def testar_area_do_retangulo():
     resultado_esperado = 6
 
     resultado_atual = area_do_retangulo(base, altura)
+    assert resultado_atual == resultado_esperado
+
+def testar_volume_do_cilindro():
+    raio = 4
+    altura = 5
+    resultado_esperado = 248
+
+    resultado_atual = volume_do_cilindro(raio, altura)
     assert resultado_atual == resultado_esperado
 
 #anotação para utilizar como massa de teste
