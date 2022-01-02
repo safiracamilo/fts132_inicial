@@ -81,25 +81,36 @@ def testar_area_do_retangulo():
     resultado_atual = area_do_retangulo(base, altura)
     assert resultado_atual == resultado_esperado
 
-def testar_volume_do_cilindro():
-    raio = 4
-    altura = 5
-    resultado_esperado = 248
 
-    resultado_atual = volume_do_cilindro(raio, altura)
-    assert resultado_atual == resultado_esperado
-
-#anotação para utilizar como massa de teste
-@pytest.mark.parametrize('raio,resultado_esperado',[
+@pytest.mark.parametrize('raio, altura, resultado_esperado',[
     #valores
-                             (1,3.14), #teste n.1
-                             (2,12.56), #teste n.2
-                             (3,28.26), #teste n.3
-                             (4,50.24), #teste n.4
-                             ('a', 'Falha no calculo - Raio não e um número'), #teste n.5
+                             (4,5,251.20000000000002), #teste n.1
+                             (1,2,6.28),
 
 
                          ])
+
+def testar_volume_do_cilindro(raio,altura,resultado_esperado):
+    #raio = 4
+    #altura = 5
+    #resultado_esperado = 251.20000000000002
+
+    resultado_atual = volume_do_cilindro(float(raio),float(altura))
+    assert resultado_atual == resultado_esperado
+
+#anotação para utilizar como massa de teste
+
+#Para fazer o teste de lista primeiro preenche a lista com parametros a serem executados na função.
+@pytest.mark.parametrize('raio,resultado_esperado', [
+        # valores
+        (1, 3.14),  # teste n.1
+        (2, 12.56),  # teste n.2
+        (3, 28.26),  # teste n.3
+        (4, 50.24),  # teste n.4
+        ('a', 'Falha no calculo - Raio não e um número'),  # teste n.5
+
+    ])
+#cada linha da lista acima será executada na função abaixo:
 def testar_area_do_circulo(raio, resultado_esperado):
     #raio = 1 (Comentei para que os parametros seja lidos
     #resultado_esperado = 3.14
