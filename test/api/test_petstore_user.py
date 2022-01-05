@@ -119,3 +119,37 @@ def testar_excluir_usuario():
     assert corpo_da_resposta['code'] == codigo_esperado
     assert corpo_da_resposta['type'] == tipo_esperado
     assert corpo_da_resposta['message'] == mensagem_esperada
+
+def testar_login_do_usuario():
+    #configura
+    username = 'estrela'
+    password = '124'
+    status_code_esperado = 200
+    codigo_esperado = 200
+    tipo_esperado = "unknown"
+    inicio_mensagem_esperada = 'logged in user session:'        # pega informação no site petstore-na parte login Get -
+
+
+    # Executa
+    resposta = requests.get(
+        url=f'{base_url}/login?username={username}&password={password}',
+        headers=headers
+    )
+    # Formatação
+    corpo_da_resposta = resposta.json()  # Formata com JSON
+    print(resposta)  # Resposta Bruta
+    print(resposta.status_code)  # Status Code
+    print(corpo_da_resposta)  # Resposta Formatada
+
+    #Valida
+    assert resposta.status_code == status_code_esperado
+    assert corpo_da_resposta['code'] == codigo_esperado
+    assert corpo_da_resposta['type'] == tipo_esperado
+    assert corpo_da_resposta['message'].find(inicio_mensagem_esperada) != -1
+
+    #Extrair
+    # Na mensagem "logged in user session: "logged in user session:1641337539160" vamos pegar só os números
+    mensagem_recebida = corpo_da_resposta['message']
+    token_usuario = mensagem_recebida[23:37]
+    print(f'O Token do usuário é:{token_usuario}')
+
