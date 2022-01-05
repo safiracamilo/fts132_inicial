@@ -65,6 +65,42 @@ def testar_consultar_usuario():
     assert corpo_da_resposta['phone'] == phone
 
 
+
+def testar_consultar_usuario_com_token(token_usuario):
+    # Configura
+    status_code = 200
+    id = 1212
+    username = 'estrela'
+    firstName = 'estrela'
+    lastName = 'polar'
+    emaiword = '124'
+    email = 'estrelapolar@gmail.com'
+    phone = '9999999999'
+    userStatus = 0
+
+    # executa
+    resposta = requests.get(
+        url=f'{base_url}/{username}',
+        headers=headers
+    )
+    # Formatação
+    corpo_da_resposta = resposta.json()  # Formata com JSON
+    print(resposta)  # Resposta Bruta
+    print(resposta.status_code)  # Status Code
+    print(corpo_da_resposta)  # Resposta Formatada
+
+    # Valida
+    assert resposta.status_code == status_code
+    assert corpo_da_resposta['id'] == id
+    assert corpo_da_resposta['username'] == username
+    assert corpo_da_resposta['email'] == email
+    assert corpo_da_resposta['phone'] == phone
+
+    print(f'O Token do usuário é:{token_usuario}')
+
+
+
+
 def testar_alterar_usuario():
     # Configura
     username = 'estrela'
@@ -152,4 +188,6 @@ def testar_login_do_usuario():
     mensagem_recebida = corpo_da_resposta['message']
     token_usuario = mensagem_recebida[23:37]
     print(f'O Token do usuário é:{token_usuario}')
+    testar_consultar_usuario_com_token(token_usuario)
+
 
