@@ -66,7 +66,7 @@ def testar_consultar_usuario():
 
 
 
-def testar_consultar_usuario_com_token(token_usuario):
+def consultar_usuario_com_token(token_usuario): # não funciona sozinha, e sim com função testar login
     # Configura
     status_code = 200
     id = 1212
@@ -97,8 +97,6 @@ def testar_consultar_usuario_com_token(token_usuario):
     assert corpo_da_resposta['phone'] == phone
 
     print(f'O Token do usuário é:{token_usuario}')
-
-
 
 
 def testar_alterar_usuario():
@@ -188,6 +186,6 @@ def testar_login_do_usuario():
     mensagem_recebida = corpo_da_resposta['message']
     token_usuario = mensagem_recebida[23:37]
     print(f'O Token do usuário é:{token_usuario}')
-    testar_consultar_usuario_com_token(token_usuario)
+    consultar_usuario_com_token(token_usuario)
 
 

@@ -1,0 +1,18 @@
+{
+  "id":  12129,
+  "category": {
+    "id": 1,
+    "name": "gato"
+  },
+  "name": "Liz",
+  "photoUrls": [
+    "https://www.drogavet.com.br/wp-content/uploads/2019/08/articulacoes-gatos-site-agosto-2019.png"
+  ],
+  "tags": [
+    {
+      "id": 9,
+      "name": "vacinado"
+    }
+  ],
+  "status": "available"
+}
